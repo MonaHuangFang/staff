@@ -4,6 +4,7 @@ import sys
 import os
 
 def read_table():
+    #读取数据
     filePath = sys.path[0]+ os.sep +"staff_table"
     f = open(filePath,"r",encoding="utf-8")
     employee_dict = {}
@@ -20,6 +21,7 @@ def read_table():
     return employee_dict
 
 def write_table(dict):
+    #数据写入文件
     filePath = sys.path[0] + os.sep + "staff_table"
     f = open(filePath, "w",encoding="utf-8")
     s_all = ''
@@ -35,6 +37,7 @@ def write_table(dict):
     f.close()
 
 def sql_manage(sql):
+    #处理sql语句
     key_dict = {
         "where":"",
         "set":"",
@@ -55,6 +58,7 @@ def sql_manage(sql):
 
 #insert into staff_table values ("Mona","30","13535324567","IT","2017-02-17")Rain,25,13832353222,Sales,2016-04-22
 def insert_action(string):
+    #创建新员工
     data = read_table()
     dict = sql_manage(string)
     sql_list = string.split()
@@ -84,6 +88,7 @@ def insert_action(string):
 #select * from staff_table where dept = "IT"
 #select * from staff_table where enroll_date like "2013"
 def select_action(string):
+    #查找员工
     data = read_table()
     dict = sql_manage(string)
     sql_list = string.split()
@@ -146,8 +151,8 @@ def select_action(string):
         return False
 
 def print_select_age(age,type,*args):
+    #打印查找员工
     data = read_table()
-    # print(args)
     if args:
         string = "staff_Id".center(12, " ")
         if "name" in args:
@@ -237,6 +242,7 @@ def print_select_age(age,type,*args):
 
 #delete from staff_table where staff_Id = 3
 def delete_action(string):
+    #删除员工
     data = read_table()
     dict = sql_manage(string)
     sql_list = string.split()
@@ -256,6 +262,7 @@ def delete_action(string):
 
 #update staff_table set dept = "Market" where dept = "IT"
 def update_action(string):
+    #修改员工数据
     data = read_table()
     dict = sql_manage(string)
     sql_list = string.split()
