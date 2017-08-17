@@ -1,6 +1,6 @@
 ### 作者：黄方
 ### 程序介绍：
-'''
+```
 员工信息表程序，实现增删改查操作：
 1、可进行模糊查询，语法至少支持下面3种:
     select name,age from staff_table where age > 22
@@ -14,7 +14,7 @@
 5、可修改员工信息，语法如下:
 　　 UPDATE staff_table SET dept="Market" where dept = "IT"
 注意：以上需求，要充分使用函数，请尽你的最大限度来减少重复代码
-'''
+```
 
 ### 程序结构：
 ```
